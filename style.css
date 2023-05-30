@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  overflow: hidden;
+  background-image: url("./assets/stars-1654074_1280.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.container {
+  font-size: 10px;
+  width: 40em;
+  height: 40em;
+  position: relative;
+}
+
+audio{
+    width:300px;
+   
+}
+
+
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    margin-right: 250px;
+}
+.left p{
+    color: rgb(167, 95, 167);
+    font-size:20px;
+    margin-bottom: 50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+   
+
+}
+
+
+.sun {
+  position: absolute;
+  top: 15em;
+  left: 15em;
+  width: 10em;
+  height: 10em;
+  background-color: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 3em white;
+}
+.earth,
+.moon {
+  position: absolute;
+  border-style: solid;
+  border-color: white;
+  border-color: white transparent transparent transparent;
+  border-width: 0.1em 0.1em 0 0;
+  border-radius: 50%;
+}
+.earth {
+  top: 5em;
+  left: 5em;
+  width: 30em;
+  height: 30em;
+  animation: orbit 36.5s linear infinite;
+}
+
+/* ?linear: Bu değer, animasyonun geçiş eğrisini belirtir. linear, animasyonun başlangıç ve bitiş arasında sabit bir hızda gerçekleşeceği anlamına gelir. Yani, animasyonun akıcı ve düzgün bir şekilde ilerlemesi sağlanır.*/
+
+/* ? infinite: Bu değer, animasyonun sonsuz tekrarlamasını belirtir. Yani, animasyon, süresi sona erdiğinde tekrar başa dönerek sürekli olarak çalışır.*/
+
+.moon {
+  top: 0;
+  right: 0;
+  width: 8em;
+  height: 8em;
+  animation: orbit 36.5s linear infinite;
+}
+
+
+
+.earth::before,
+.moon::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* !pseudo öğelerine  içerik eklemek için 'content' özelliğini kullanırız. (before, after gibi.)  */
+/*! BOŞ bir içerik oluşturmak için 'content; ""; kullanırız */
+
+.earth::before {
+  top: 2.8em;
+  right: 2.8em;
+  width: 3em;
+  height: 3em;
+  background-color: aqua;
+}
+.moon::before {
+  top: 0.8em;
+  right: 0.2em;
+  width: 1.2em;
+  height: 1.2em;
+  background-color: silver;
+}
+
+p{
+  color: white;
+}
+
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ? @keyframes kuralı genellikle animation özelliği ile birlikte kullanılır. @keyframes ile orbit adında bir animasyon tanımlanabilir:  */
+
+/* ? Saat yönünde hareket ettirmek için 'to' dönmeanimasyonunun bitiş durumunu belirtir */
+
+
+/* ! position: absolute; özelliği kullanılarak konumlandırılan bir öğenin konumu, belirlenen top, left, bottom ve right gibi özelliklerle belirtilebilir. Ayrıca, z-index özelliği kullanılarak diğer öğelerle olan yığınlama düzeni de kontrol edilebilir. */
